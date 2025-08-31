@@ -18,16 +18,16 @@ Bonus: carve a clause protecting U.S. mineral flows.
 
 ## Step 3: Restructure the Narrative
 Don’t just offer a haircut — offer performance-linked instruments:  
-- Cobalt warrants (Ghana-style)  
-- GDP-linked notes (Ukraine, Argentina)  
-- Backed by AfDB/IFC for marketability  
+  Cobalt warrants (Ghana-style)  
+  GDP-linked notes (Ukraine, Argentina)  
+  Backed by AfDB/IFC for marketability  
 
 ## Timing & Geopolitics
 Current U.S. policy in DRC is cobalt-focused.  
 Use transactional diplomacy to secure alignment.  
 
 ## Expected Result
-- DRC gets clarity + legal armor  
-- U.S. secures minerals without boots  
-- Investors get upside, not lawsuits  
-- Vultures get confused  
+  DRC gets clarity + legal armor  
+  U.S. secures minerals without boots  
+  Investors get upside, not lawsuits  
+  Vultures get confused  
