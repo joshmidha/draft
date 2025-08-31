@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>systems</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Spectral:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Spectral', serif;
+      background: #fff;
+      color: #111;
+      margin: 0;
+      padding: 0;
+      line-height: 1.7;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 220px 1fr 200px;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+    nav {
+      font-size: 0.9rem;
+      position: sticky;
+      top: 20px;
+    }
+    .entry {
+      margin-bottom: 60px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #eee;
+    }
+    .entry h2 {
+      font-weight: 600;
+      margin-bottom: 0.2em;
+    }
+    .entry .date {
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 1.2em;
+    }
+    .notes {
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      margin-top: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <h3>Notebook</h3>
+      <ul>
+        <li><a href="#">Healthcare</a></li>
+        <li><a href="#">Attention Systems</a></li>
+        <li><a href="#">Consumption</a></li>
+      </ul>
+    </nav>
+    
+    <main>
+      <article class="entry">
+        <h2>Healthcare as a Point of Sale</h2>
+        <div class="date">August 31, 2025</div>
+        <p>
+          Patient → Hospital → Insurer flow redesigned so the patient is no longer
+          the intermediary. Hospital handles all insurer interaction; patient only
+          provides ID and pays post-visit balance if applicable.
+        </p>
+        <div class="notes">
+          Notes: Possible efficiency gains if paired with real-time eligibility API.
+          Explore pushback from insurers who want patient involvement.
+        </div>
+      </article>
+
+      <!-- Add more entries here -->
+    </main>
+    
+    <aside></aside>
+  </div>
+</body>
+</html>
