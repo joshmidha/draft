@@ -1,5 +1,5 @@
 # Tranche-Pooled Insurance
-
+*August 11, 2025*
 ## Core Premise
 Traditional insurers are redundant. Their functions—pooling risk, holding reserves, and processing claims—can be replaced by a platform that:
 - Pre-pools liquidity from participants.
