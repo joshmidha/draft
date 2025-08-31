@@ -1,5 +1,6 @@
 # Randomized Iterative Topical Mapping System (RITMS)
 *August 19, 2025*
+
 ## 1. Premise
 Most classification systems are deterministic: they try to fix topics into rigid taxonomies (e.g., Dewey Decimal, ICD codes, subject hierarchies).  
 This is efficient for control, but brittle in high-dimensional, emergent domains where new connections matter more than fixed placement.
@@ -14,35 +15,38 @@ RITMS assumes:
 ## 2. System Walkthrough
 
 ### Step 1: Initialization
-- Define nodes \( V \) = all topics/documents/objects.  
+- Define nodes $V$ = all topics/documents/objects.  
 - Initially no links, or only trivial metadata links.  
 
 ### Step 2: Random Edge Proposal
-- At iteration \( t \), generate a random set of candidate edges \( E_t^{rand} \) between nodes.  
+- At iteration $t$, generate a random set of candidate edges $E_t^{rand}$ between nodes.  
 - Randomness ensures even improbable, non-obvious links are tested.  
 
 ### Step 3: Efficiency Evaluation
-- Add \( E_t^{rand} \) temporarily.  
-- Compute efficiency metrics \( E(G_t) \).  
+- Add $E_t^{rand}$ temporarily.  
+- Compute efficiency metrics $E(G_t)$.  
 
 **Metrics:**  
-- **Global Efficiency**  
-  \[
-  E(G) = \frac{1}{n(n-1)} \sum_{i \neq j} \frac{1}{d(v_i, v_j)}
-  \]  
-- **Average Path Length**  
-  \[
-  L(G) = \frac{1}{n(n-1)} \sum_{i \neq j} d(v_i, v_j)
-  \]  
-- **Clustering Coefficient**  
-  \[
-  C(G) = \frac{1}{n} \sum_{i=1}^n \frac{2e_i}{k_i(k_i-1)}
-  \]  
 
-Goal: maximize \( E(G) \), minimize \( L(G) \), maintain healthy \( C(G) \).
+- **Global Efficiency**  
+  $$
+  E(G) = \frac{1}{n(n-1)} \sum_{i \neq j} \frac{1}{d(v_i, v_j)}
+  $$  
+
+- **Average Path Length**  
+  $$
+  L(G) = \frac{1}{n(n-1)} \sum_{i \neq j} d(v_i, v_j)
+  $$  
+
+- **Clustering Coefficient**  
+  $$
+  C(G) = \frac{1}{n} \sum_{i=1}^n \frac{2e_i}{k_i(k_i-1)}
+  $$  
+
+Goal: maximize $E(G)$, minimize $L(G)$, maintain healthy $C(G)$.
 
 ### Step 4: Acceptance / Rejection
-- Keep edges if \( \Delta E(G) > \epsilon \).  
+- Keep edges if $\Delta E(G) > \epsilon$.  
 - Reject otherwise.  
 
 ### Step 5: Iteration
@@ -50,7 +54,7 @@ Goal: maximize \( E(G) \), minimize \( L(G) \), maintain healthy \( C(G) \).
 - Over time, bad edges die out, efficient connections survive.  
 
 ### Step 6: Termination
-- Stop when improvement per cycle < threshold \( \delta \).  
+- Stop when improvement per cycle < threshold $\delta$.  
 - Network stabilizes into efficient small-world form.
 
 ---
@@ -65,11 +69,11 @@ Goal: maximize \( E(G) \), minimize \( L(G) \), maintain healthy \( C(G) \).
 ---
 
 ## 4. Efficiency Rationale
-- Deterministic taxonomies = \( O(N) \) classification, but rigid, poor discovery.  
-- Pure brute-force network optimization = \( O(N^2) \) edges, computationally infeasible for large \( N \).  
+- Deterministic taxonomies = $O(N)$ classification, but rigid, poor discovery.  
+- Pure brute-force network optimization = $O(N^2)$ edges, computationally infeasible for large $N$.  
 - RITMS = randomized search + efficiency pruning:  
-  - Proposals = \( O(k) \) edges per iteration.  
-  - Evaluation = \( O(N \log N) \) with approximate shortest path algorithms.  
+  - Proposals = $O(k)$ edges per iteration.  
+  - Evaluation = $O(N \log N)$ with approximate shortest path algorithms.  
   - Convergence typically polynomial, not exponential.  
 
 Thus: less efficient per step (randomness creates waste) but far more efficient in exploring hidden structures, avoiding local optima, and adapting to new data.
