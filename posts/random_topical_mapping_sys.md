@@ -1,5 +1,5 @@
 # Randomized Iterative Topical Mapping System (RITMS)
-* August 19, 2025 *
+*August 19, 2025*
 ## 1. Premise
 Most classification systems are deterministic: they try to fix topics into rigid taxonomies (e.g., Dewey Decimal, ICD codes, subject hierarchies).  
 This is efficient for control, but brittle in high-dimensional, emergent domains where new connections matter more than fixed placement.
