@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>System Notebook</title>
+  <title>System Drafts – Midha</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Spectral:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
@@ -13,6 +13,13 @@
       margin: 0;
       padding: 0;
       line-height: 1.7;
+    }
+    header {
+      padding: 20px 30px;
+      font-family: 'Spectral', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      border-bottom: 1px solid #eee;
     }
     .container {
       max-width: 750px;
@@ -47,6 +54,8 @@
   </style>
 </head>
 <body>
+  <header>System Drafts – Midha</header>
+
   <div class="container">
     <div id="content"></div>
 
@@ -59,7 +68,7 @@
   <script>
     // List of posts (just filenames, no path)
     const posts = ["healthcare.md", "drc.md"];
-    let current = 1;
+    let current = 0;
 
     function loadPost(index) {
       fetch("posts/" + posts[index])
