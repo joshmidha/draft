@@ -13,6 +13,7 @@
       margin: 0;
       padding: 0;
       line-height: 1.7;
+      display: flex;
     }
     header {
       width: 100%;
@@ -26,15 +27,16 @@
       position: sticky;
       top: 0;
       z-index: 10;
+      display: none; /* hidden until note is opened */
     }
-    .container {
+    .main {
+      flex: 1;
       max-width: 750px;
-      margin: 40px auto;
-      padding: 0 20px;
-      text-align: center;
+      margin: 40px;
     }
     .title-page {
       margin-top: 100px;
+      text-align: center;
     }
     .title-page h1 {
       font-family: 'Spectral', serif;
@@ -54,6 +56,9 @@
     .title-page button:hover {
       background: #f2f2e8;
     }
+    #content {
+      display: none;
+    }
     article {
       text-align: left;
       margin-bottom: 60px;
@@ -67,6 +72,7 @@
     .nav {
       text-align: center;
       margin: 20px 0;
+      display: none;
     }
     .nav button {
       background: none;
@@ -80,12 +86,37 @@
     .nav button:hover {
       background: #f2f2e8;
     }
+
+    /* Right-side bone wheel */
+    .wheel {
+      width: 300px;
+      height: 300px;
+      border: 2px solid #ddd;
+      border-radius: 50%;
+      margin: auto;
+      position: sticky;
+      top: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+    }
+    .wheel span {
+      position: absolute;
+      transform-origin: 150px center;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .wheel span:hover {
+      color: #555;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
-  <header>System Drafts – Midha</header>
+  <div class="main">
+    <header id="header">System Drafts – Midha</header>
 
-  <div class="container">
     <!-- Title page -->
     <div id="title-page" class="title-page">
       <h1>Notes on systems and solutions,<br>Josh Midha</h1>
@@ -93,13 +124,16 @@
     </div>
 
     <!-- Content page -->
-    <div id="content" style="display:none;"></div>
+    <div id="content"></div>
 
-    <div id="nav" class="nav" style="display:none;">
+    <div id="nav" class="nav">
       <button onclick="showEntry(-1)">← Prev</button>
       <button onclick="showEntry(1)">Next →</button>
     </div>
   </div>
+
+  <!-- Right side bone wheel -->
+  <div class="wheel" id="wheel"></div>
 
   <script>
     const posts = ["healthcare.md", "drc.md", "insurance_pools.md"];
@@ -110,6 +144,7 @@
         .then(r => r.text())
         .then(md => {
           document.getElementById("title-page").style.display = "none";
+          document.getElementById("header").style.display = "block";
           document.getElementById("content").style.display = "block";
           document.getElementById("nav").style.display = "block";
           document.getElementById("content").innerHTML = marked.parse(md);
@@ -125,6 +160,25 @@
       current = Math.floor(Math.random() * posts.length);
       loadPost(current);
     }
+
+    // Bone wheel setup
+    function setupWheel() {
+      const wheel = document.getElementById("wheel");
+      const angleStep = 360 / posts.length;
+      posts.forEach((post, i) => {
+        const label = document.createElement("span");
+        label.innerText = post.replace(".md", "");
+        const angle = angleStep * i;
+        label.style.transform = `rotate(${angle}deg) translate(120px) rotate(-${angle}deg)`;
+        label.onclick = () => {
+          current = i;
+          loadPost(current);
+        };
+        wheel.appendChild(label);
+      });
+    }
+
+    setupWheel();
   </script>
 </body>
 </html>
