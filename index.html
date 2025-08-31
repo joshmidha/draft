@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>System Drafts – Midha</title>
+  <title>Notes on Systems – Josh Midha</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Spectral:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background: #fff;
+      background: #FFFFF0; /* ivory */
       color: #111;
       margin: 0;
       padding: 0;
@@ -21,9 +21,9 @@
       font-size: 1.8rem;
       font-weight: 600;
       border-bottom: 1px solid #eee;
-      text-align: left;     /* force left alignment */
-      background: #fafafa;  /* light contrast so it pops */
-      position: sticky;     /* stays at top when scrolling */
+      text-align: left;
+      background: #f7f7f2;
+      position: sticky;
       top: 0;
       z-index: 10;
     }
@@ -31,8 +31,31 @@
       max-width: 750px;
       margin: 40px auto;
       padding: 0 20px;
+      text-align: center;
+    }
+    .title-page {
+      margin-top: 100px;
+    }
+    .title-page h1 {
+      font-family: 'Spectral', serif;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+    .title-page button {
+      background: none;
+      border: 1px solid #333;
+      padding: 10px 18px;
+      margin-top: 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+    }
+    .title-page button:hover {
+      background: #f2f2e8;
     }
     article {
+      text-align: left;
       margin-bottom: 60px;
       padding-bottom: 30px;
       border-bottom: 1px solid #eee;
@@ -55,7 +78,7 @@
       font-family: 'Inter', sans-serif;
     }
     .nav button:hover {
-      background: #f2f2f2;
+      background: #f2f2e8;
     }
   </style>
 </head>
@@ -63,9 +86,16 @@
   <header>System Drafts – Midha</header>
 
   <div class="container">
-    <div id="content"></div>
+    <!-- Title page -->
+    <div id="title-page" class="title-page">
+      <h1>Notes on systems and solutions,<br>Josh Midha</h1>
+      <button onclick="showRandom()">Open Random Note</button>
+    </div>
 
-    <div class="nav">
+    <!-- Content page -->
+    <div id="content" style="display:none;"></div>
+
+    <div id="nav" class="nav" style="display:none;">
       <button onclick="showEntry(-1)">← Prev</button>
       <button onclick="showEntry(1)">Next →</button>
     </div>
@@ -79,6 +109,9 @@
       fetch("posts/" + posts[index])
         .then(r => r.text())
         .then(md => {
+          document.getElementById("title-page").style.display = "none";
+          document.getElementById("content").style.display = "block";
+          document.getElementById("nav").style.display = "block";
           document.getElementById("content").innerHTML = marked.parse(md);
         });
     }
@@ -88,7 +121,10 @@
       loadPost(current);
     }
 
-    loadPost(current);
+    function showRandom() {
+      current = Math.floor(Math.random() * posts.length);
+      loadPost(current);
+    }
   </script>
 </body>
 </html>
