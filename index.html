@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>systems</title>
+  <title>System Notebook</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Spectral:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Spectral', serif;
+      font-family: 'Inter', sans-serif;
       background: #fff;
       color: #111;
       margin: 0;
@@ -14,31 +14,24 @@
       line-height: 1.7;
     }
     .container {
-      display: grid;
-      grid-template-columns: 220px 1fr 200px;
-      gap: 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px;
-    }
-    nav {
-      font-size: 0.9rem;
-      position: sticky;
-      top: 20px;
+      max-width: 750px;
+      margin: 40px auto;
+      padding: 0 20px;
     }
     .entry {
-      margin-bottom: 60px;
-      padding-bottom: 30px;
-      border-bottom: 1px solid #eee;
+      display: none;
     }
-    .entry h2 {
-      font-weight: 600;
-      margin-bottom: 0.2em;
+    .entry.active {
+      display: block;
     }
-    .entry .date {
+    h1, h2, h3 {
+      font-family: 'Spectral', serif;
+      margin-top: 1.2em;
+    }
+    .date {
       font-size: 0.85rem;
       color: #888;
-      margin-bottom: 1.2em;
+      margin-bottom: 1.5em;
     }
     .notes {
       background: #f9f9f9;
@@ -47,38 +40,119 @@
       font-size: 0.95rem;
       margin-top: 1.5em;
     }
+    .nav-buttons {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .nav-buttons button {
+      background: none;
+      border: 1px solid #ddd;
+      padding: 8px 14px;
+      margin: 0 6px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+    }
+    .nav-buttons button:hover {
+      background: #f2f2f2;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <nav>
-      <h3>Notebook</h3>
-      <ul>
-        <li><a href="#">Healthcare</a></li>
-        <li><a href="#">Attention Systems</a></li>
-        <li><a href="#">Consumption</a></li>
-      </ul>
-    </nav>
-    
-    <main>
-      <article class="entry">
-        <h2>Healthcare as a Point of Sale</h2>
-        <div class="date">August 31, 2025</div>
-        <p>
-          Patient → Hospital → Insurer flow redesigned so the patient is no longer
-          the intermediary. Hospital handles all insurer interaction; patient only
-          provides ID and pays post-visit balance if applicable.
-        </p>
-        <div class="notes">
-          Notes: Possible efficiency gains if paired with real-time eligibility API.
-          Explore pushback from insurers who want patient involvement.
-        </div>
-      </article>
 
-      <!-- Add more entries here -->
-    </main>
-    
-    <aside></aside>
+    <!-- Entry 1 -->
+    <article class="entry active">
+      <h1>Healthcare as a Point of Sale System</h1>
+      <div class="date">August 31, 2025</div>
+
+      <h2>Hospital-Centric Flow (Reordered System)</h2>
+      <p>Patient → Hospital<br>
+      Patient shows up, gives ID + insurance info. That’s it. No billing, no co-pays, no insurer interaction.</p>
+      <p>Hospital → Insurer<br>
+      Hospital codes the visit, generates claim, and sends it directly to insurer.<br>
+      Hospital handles:<br>
+      – eligibility check<br>
+      – pre-authorization (if required)<br>
+      – claim submission<br>
+      – adjudication<br>
+      – appeal or resubmission if denied</p>
+      <p>Insurer → Hospital<br>
+      Insurer pays the hospital directly after adjudication.<br>
+      Settlement can be immediate or batch (daily/weekly).</p>
+      <p>Hospital → Patient (only if balance remains)<br>
+      If deductible or coinsurance applies, hospital sends a simple post-visit bill. Patient pays hospital directly.</p>
+
+      <h2>Core Change</h2>
+      <p>Traditional order:<br>
+      Patient → Hospital → Insurer → Patient (EOB) → Patient (Bill) → Patient ↔ Insurer (Appeals)</p>
+      <p>Redesigned order:<br>
+      Patient → Hospital → Insurer → Hospital → Patient (if balance)</p>
+
+      <h2>Difference</h2>
+      <p>The patient no longer acts as intermediary.  
+      All insurance interaction is collapsed into a direct hospital–insurer channel.  
+      The patient only touches the system twice: at intake, and (if necessary) at final balance payment.</p>
+
+      <h2>Benefits</h2>
+      <ul>
+        <li>Removes patient from insurance backend entirely</li>
+        <li>Faster hospital payments (like merchant settlements)</li>
+        <li>Appeals and disputes handled institutionally, not individually</li>
+        <li>Patients see one bill at most, instead of navigating claims + EOBs</li>
+      </ul>
+    </article>
+
+    <!-- Entry 2 -->
+    <article class="entry">
+      <h1>On the Debt of the Democratic Republic of Congo</h1>
+      <div class="date">April 21, 2025</div>
+
+      <p><em>Not every war needs weapons. Some are fought with footnotes, contract clauses, and cobalt mines.</em></p>
+
+      <h2>Context</h2>
+      <p>The DRC has a $500 million Eurobond maturing in 2049. That’s small money on Wall Street — but for a state like the DRC, it’s a litigation magnet...</p>
+
+      <h2>Step 1: Isolate the Ghosts</h2>
+      <p>Use IMF's contingent liability playbook (Ecuador, Angola) to classify JV debt as off-balance sheet...</p>
+
+      <h2>Step 2: Shield the Heart</h2>
+      <p>Embed asset protection clauses in sovereign debt docs...  
+      Protect cobalt, copper, FX reserves.  
+      Align legal language with U.S. mineral strategy.</p>
+
+      <h2>Step 3: Restructure the Narrative</h2>
+      <p>Offer performance-linked instruments (cobalt warrants, GDP-linked notes)...  
+      Wrap with AfDB/IFC to make marketable.</p>
+
+      <h2>Timing & Geopolitics</h2>
+      <p>Current Trump policy in DRC is expected to be cobalt focused...  
+      Use transactional diplomacy to secure alignment.</p>
+
+      <h2>Expected Result</h2>
+      <ul>
+        <li>DRC gets clarity + legal armor</li>
+        <li>U.S. secures minerals without boots</li>
+        <li>Investors get upside, not lawsuits</li>
+        <li>Vultures get confused</li>
+      </ul>
+    </article>
+
+    <!-- Navigation -->
+    <div class="nav-buttons">
+      <button onclick="showEntry(-1)">← Prev</button>
+      <button onclick="showEntry(1)">Next →</button>
+    </div>
   </div>
+
+  <script>
+    let current = 0;
+    const entries = document.querySelectorAll('.entry');
+    function showEntry(direction) {
+      entries[current].classList.remove('active');
+      current = (current + direction + entries.length) % entries.length;
+      entries[current].classList.add('active');
+    }
+  </script>
 </body>
 </html>
