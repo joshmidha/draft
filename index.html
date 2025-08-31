@@ -15,11 +15,17 @@
       line-height: 1.7;
     }
     header {
+      width: 100%;
       padding: 20px 30px;
       font-family: 'Spectral', serif;
       font-size: 1.8rem;
       font-weight: 600;
       border-bottom: 1px solid #eee;
+      text-align: left;     /* force left alignment */
+      background: #fafafa;  /* light contrast so it pops */
+      position: sticky;     /* stays at top when scrolling */
+      top: 0;
+      z-index: 10;
     }
     .container {
       max-width: 750px;
@@ -66,7 +72,6 @@
   </div>
 
   <script>
-    // List of posts (just filenames, no path)
     const posts = ["healthcare.md", "drc.md"];
     let current = 0;
 
@@ -83,7 +88,6 @@
       loadPost(current);
     }
 
-    // Load first post
     loadPost(current);
   </script>
 </body>
